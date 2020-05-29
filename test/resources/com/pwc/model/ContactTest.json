@@ -1,0 +1,58 @@
+{
+  "contact": {
+    "jcr:primaryType": "nt:unstructured",
+    "sling:resourceType": "pwc/components/content/contact",
+    "imageReference" : "/content/dam/core-components-examples/library/sample-assets/lava-rock-formation.jpg",
+    "profileName" : "image.jpg",
+    "alternativeLinkText" : "some text",
+    "alternativeLink" : "/content/pwc/ee/en/home.html"
+  },
+
+  "contactBox":
+  {
+    "jcr:primaryType": "nt:unstructured",
+    "sling:resourceType": "pwc/components/content/contact",
+    "profileType": "contactBox",
+    "globalTitle": "E.164",
+    "firstName": "Sonal",
+    "lastName" : "Gupta",
+    "localtitle" : "E.124",
+    "linkedInUrl" : "https://www.linkedin.com/in/sonal-gupta-b92746147/",
+    "email" : "janedoe12@gmail.com",
+    "country" : "EE",
+    "office" : "ttn",
+    "province" : "UP",
+    "telephone" : "9450816811",
+    "territory" : "ee",
+    "fax" : "212-555-1234"
+  },
+
+  "contactCard":
+  {
+    "jcr:primaryType": "nt:unstructured",
+    "sling:resourceType": "pwc/components/content/contact",
+    "profileType": "contactBoxCard",
+    "twitter" : "https://www.twitter.com/in/jane-doe/",
+    "designation" : "software developer",
+    "experience" : "2 years",
+    "specialty" : "Good Programmer"
+  },
+
+  "contactProfile":
+  {
+    "jcr:primaryType": "nt:unstructured",
+    "sling:resourceType": "pwc/components/content/contact",
+    "profileType": "contactBoxCardProfile",
+    "education" : "MCA",
+    "bodyContent": "I am hardworking",
+    "interest" : "AEM technology"
+  },
+  "TerritoryOrLegalEntityI18nKey-With-Territory" :
+{
+  "jcr:primaryType": "nt:unstructured",
+  "sling:resourceType": "pwc/components/content/contact",
+  "territory" : "ee"
+}
+
+
+}
