@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+
+    <tlib-version>1.0</tlib-version>
+    <short-name>pwc</short-name>
+    <uri>http://com.pwc/pwc</uri>
+
+    <tag>
+        <name>socialshareemail</name>
+        <tag-class>com.pwc.tagmodels.SocialShareEmailValues</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+    <tag>
+        <name>socialfollowvalues</name>
+        <tag-class>com.pwc.tagmodels.SocialShareValueMap</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+    <tag>
+        <name>socialsharerepeatvalues</name>
+        <tag-class>com.pwc.tagmodels.SocialShareRepeatingValues</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+	<tag>
+        <name>feedData</name>
+        <tag-class>com.pwc.tagmodels.FetchFeedData</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>options</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String[]</type>
+        </attribute>
+        <attribute>
+            <name>options</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String[]</type>
+        </attribute>
+        <attribute>
+            <name>path</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+
+        </attribute>
+        <attribute>
+            <name>urls</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+
+        </attribute>
+        <attribute>
+            <name>limit</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+        </attribute>
+    </tag>
+	<tag>
+        <name>sitemap</name>
+        <tag-class>com.pwc.tagmodels.SitemapRenderTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>locale</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String[]</type>
+        </attribute>
+    </tag>
+</taglib>

@@ -1,0 +1,32 @@
+<root>
+    <testCase>
+        <currentPage>/content/pwc/jp/ja</currentPage>
+        <vanity>/content/pwc/jp</vanity>
+        <expectedResult>http://www.pwc.com/jp</expectedResult>
+    </testCase>
+    <testCase>
+        <currentPage>/content/pwc/jp/ja</currentPage>
+        <vanity>/content/pwc/jp/ja</vanity>
+        <expectedResult>http://www.pwc.com/jp/ja</expectedResult>
+    </testCase>
+    <testCase>
+        <currentPage>/content/pwc/jp/ja</currentPage>
+        <vanity>/content/pwc/jp/ja/</vanity>
+        <expectedResult>http://www.pwc.com/jp/ja/</expectedResult>
+    </testCase>
+    <testCase>
+        <currentPage>/content/pwc/jp/ja/service</currentPage>
+        <vanity>/content/pwc/jp/ja/service</vanity>
+        <expectedResult>http://www.pwc.com/jp/ja/service</expectedResult>
+    </testCase>
+    <testCase>
+        <currentPage>/content/pwc/jp/en</currentPage>
+        <vanity>/content/pwc/jp/en</vanity>
+        <expectedResult>http://www.pwc.com/jp/en</expectedResult>
+    </testCase>
+    <testCase>
+        <currentPage>/content/pwc/jp/ja/service</currentPage>
+        <vanity>/content/pwc/jp/ja/service</vanity>
+        <expectedResult>http://www.pwc.com/jp/ja/service</expectedResult>
+    </testCase>
+</root>

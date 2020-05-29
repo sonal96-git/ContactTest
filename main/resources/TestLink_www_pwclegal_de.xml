@@ -1,0 +1,17 @@
+<root>
+    <testCase>
+        <currentPage>/content/pwc/de/de/website/www_pwclegal_de.html</currentPage>
+        <link>/content/pwc/de/de/website/www_pwclegal_de.html</link>
+        <expectedResult>/de/</expectedResult>
+    </testCase>
+    <testCase>
+        <currentPage>/content/pwc/de/de/website/www_pwclegal_de</currentPage>
+        <link>/content/pwc/de/de/website/www_pwclegal_de.html</link>
+        <expectedResult>/de/</expectedResult>
+    </testCase>
+    <testCase>
+        <currentPage>/content/pwc/de/de/website/www_pwclegal_de</currentPage>
+        <link>/content/pwc/de/de/website/www_pwclegal_de/service.html</link>
+        <expectedResult>/de/service.html</expectedResult>
+    </testCase>
+</root>

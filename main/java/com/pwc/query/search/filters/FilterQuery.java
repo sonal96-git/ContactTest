@@ -1,0 +1,157 @@
+package com.pwc.query.search.filters;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import org.apache.sling.api.resource.ValueMap;
+
+import com.pwc.query.controllers.models.ControllerBean;
+import com.pwc.query.enums.CollectionProps;
+import com.pwc.query.enums.FileTypes;
+import com.pwc.query.enums.QueryLabels;
+import com.pwc.query.utils.CommonsUtils;
+
+public abstract class FilterQuery {
+	
+	public abstract StringBuilder getFilterPredicate(List<List<String>> filter,ControllerBean contrBean,StringBuilder paths);
+	
+	public abstract HashMap<String,String> getFilterMap( HashMap<String,String> map, ControllerBean contrBean);
+
+	public StringBuilder getTagsPredicate(ControllerBean contrBean, List<List<String>> filter) {
+
+		List<String> partialOrQueries;
+		StringBuilder finalTagString = new StringBuilder();
+		List<String> partialAndQueries = new ArrayList<>();
+
+		for(List<String> list : filter) {
+			partialOrQueries = new ArrayList<>();
+			for(String stringTag : list) {
+
+				// searching into page properties
+				partialOrQueries.add("  ( "+ QueryLabels.JCR_CONTENT_PAGE_TAGS.toString()+" = '"+stringTag+"' ) ");
+				// searching into asset properties
+				partialOrQueries.add(" ( "+ QueryLabels.JCR_CONTENT_ASSET_TAGS.toString()+" = '"+stringTag+"' ) ");
+
+				getBackLinks(partialOrQueries,contrBean,stringTag);
+			}
+			if(!partialOrQueries.isEmpty())
+				partialAndQueries.add(" ( " + String.join(" OR ", partialOrQueries) + " ) ");
+		}
+
+		if(partialAndQueries.isEmpty()) return finalTagString;
+
+		finalTagString.append(" ( " + String.join(" AND ", partialAndQueries) + " ) ");
+
+		return finalTagString;
+	}
+
+
+	protected StringBuilder getTypesPredicate(ControllerBean contrBean,StringBuilder filterQuery,StringBuilder paths){
+
+		ValueMap prop = contrBean.getProperties();
+        StringBuilder unionString = new StringBuilder();
+        StringBuilder queryString = new StringBuilder();
+		CommonsUtils commons = new CommonsUtils();
+
+
+		// adding to map the html property
+        queryString.append(commons.isFileTypeSelected(prop.get(CollectionProps.FILE_TYPE), FileTypes.HTML.toString())?
+				getFileTypeMap(FileTypes.HTML.toString(),contrBean.getSearchText()): "");
+
+        if(queryString.length() != 0) {
+
+            unionString.append(queryString);
+            if(filterQuery.length() != 0) unionString.append(" AND ");
+            unionString.append(filterQuery);
+            unionString.append(" AND "+paths);
+        }
+
+		// adding to map the pdf property
+        queryString.setLength(0);
+        queryString.append(commons.isFileTypeSelected(prop.get(CollectionProps.FILE_TYPE), FileTypes.PDF.toString())?
+				getFileTypeMap(FileTypes.PDF.toString(),contrBean.getSearchText()): "");
+
+        if(queryString.length() != 0) {
+
+			if(unionString.length() != 0) unionString.append(" UNION ");
+
+            unionString.append(queryString);
+
+            if(filterQuery.length() != 0) unionString.append(" AND ");
+
+            unionString.append(filterQuery);
+            unionString.append(" AND "+paths);
+        }
+
+
+
+		// adding to map the video property
+        queryString.setLength(0);
+        queryString.append(commons.isFileTypeSelected(prop.get(CollectionProps.FILE_TYPE), FileTypes.VIDEO.toString())?
+				getFileTypeMap(FileTypes.VIDEO.toString(),contrBean.getSearchText()): "");
+
+        if(queryString.length() != 0) {
+
+			if(unionString.length() != 0) unionString.append(" UNION ");
+
+            unionString.append(queryString);
+
+            if(filterQuery.length() != 0) unionString.append(" AND ");
+
+            unionString.append(filterQuery);
+            unionString.append(" AND "+paths);
+
+        }
+
+		return unionString;
+	}
+
+
+	private StringBuilder getFileTypeMap(String type,String search){
+
+        StringBuilder queryString = new StringBuilder();
+
+		switch (FileTypes.valueOf(type.toUpperCase())) {
+
+			case HTML:
+                // pages WHERE hide_level in(2,0.2,"")
+                queryString.append("SELECT * " +
+                        "FROM "+QueryLabels.PAGE.toString()+" as p " +
+                        "WHERE ( "+QueryLabels.HIDE_LEVEL.toString()+"  IS NULL " +
+                        "OR "+QueryLabels.HIDE_LEVEL.toString()+" IN ('0,2','2','') ) ");
+				break;
+			case PDF:
+                // assets WHERE dc:format = 'PDF'
+                queryString.append("SELECT * FROM "+QueryLabels.ASSET.toString()+" as p WHERE  " +
+						" "+QueryLabels.JCR_CONTENT_ASSET_FORMAT.toString()+" IS NOT NULL  ");
+				break;
+			case VIDEO:
+                // assets WHERE dc:format = 'VIDEO'
+                queryString.append("SELECT * FROM "+QueryLabels.ASSET.toString()+" as p " +
+                        "WHERE "+QueryLabels.JCR_CONTENT_ASSET_FORMAT.toString()+" = '"+QueryLabels.VIDEO.toString()+"'  ");
+
+				break;
+			default:
+				throw new IllegalArgumentException("Invalid filter " + type);
+		}
+
+		return queryString;
+	}
+
+	// This method, adds to the query, the back links generated by merging or moving the tag , or updating the tag's name.
+	private void getBackLinks(List<String> partialOrQueries,ControllerBean controllerBean ,String tagID) {
+
+	    String[] backLinksArray = CommonsUtils.getTagBackLinks(controllerBean,tagID);
+
+		for(int i=0; i<backLinksArray.length; i++){
+
+			if(i%2 == 0) {
+				// searching into page properties
+				partialOrQueries.add("  ( "+ QueryLabels.JCR_CONTENT_PAGE_TAGS.toString()+" = '"+backLinksArray[i].trim()+"' ) ");
+				// searching into asset properties
+				partialOrQueries.add(" ( "+ QueryLabels.JCR_CONTENT_ASSET_TAGS.toString()+" = '"+backLinksArray[i].trim()+"' ) ");
+			}
+		}
+	}
+}

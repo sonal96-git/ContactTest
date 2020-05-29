@@ -1,0 +1,106 @@
+{
+    colors: ['#e0301e', '#a32020', '#db536a', '#602320', '#eb8c00', '#dc6900', '#f7cbc7', '#939598', '#c7c8ca'],
+    chart: {
+        backgroundColor: {
+            linearGradient: [0, 0, 0, 400],
+            stops: [
+				[0, 'rgb(255, 255, 255)'],
+				[1, 'rgb(255, 255, 255)']
+			]
+        },
+        style: {
+            fontFamily: 'Arial, Helvetica, sans-serif', 
+	        fontSize: '11px'
+        },
+        borderWidth: 0,
+        plotBackgroundColor: 'rgba(255, 255, 255, .9)',
+        plotShadow: false,
+
+        plotBorderWidth: 0
+    },
+    title: {
+        style: {
+            color: '#e0301e',
+            fontWeight: 'bold',
+            fontSize: '15px',
+            fontFamily: 'Georgia, "Times New Roman"',
+            fontStyle: 'italic'
+        }
+    },
+    subtitle: {
+        style: {
+            color: '#a32020',
+            fontSize: '12px',
+            fontFamily: 'Georgia, "Times New Roman"'
+        }
+    },
+    credits: {
+        style: {
+            color: '#404041',
+            fontSize: '10px'
+        }
+    },
+    xAxis: {
+        gridLineWidth: 0,
+        lineColor: '#939598',
+        tickColor: '#939598',
+        labels: {
+            style: {
+                color: '#404041',
+                fontSize: '11px'
+            }
+        },
+        title: {
+            style: {
+                color: '#e0301e',
+                fontWeight: 'bold',
+                fontSize: '12px',
+                fontFamily: 'Georgia, "Times New Roman"'
+            }
+        }
+    },
+    yAxis: {
+        alternateGridColor: null,
+        minorTickInterval: null,
+        lineColor: '#939598',
+        lineWidth: 1,
+        tickWidth: 1,
+        tickColor: '#939598',
+        gridLineColor: '#c7c8ca',
+        gridLineDashStyle: "Dot",
+        labels: {
+            style: {
+                color: '#404041',
+                fontSize: '11px'
+            }
+        },
+        title: {
+            style: {
+                color: '#e0301e',
+                fontWeight: 'bold',
+                fontSize: '12px',
+                fontFamily: 'Georgia, "Times New Roman"'
+            }
+        }
+    },
+    legend: {
+
+        itemStyle: {
+            fontSize: '10px',
+            color: '#404041',
+            padding: '5px'
+
+        },
+        itemHoverStyle: {
+            color: '#e0301e'
+        },
+        itemHiddenStyle: {
+            color: '#939598'
+        }
+    },
+    labels: {
+        style: {
+            color: '#99b'
+        }
+    }
+}

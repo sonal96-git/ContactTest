@@ -1,0 +1,13 @@
+<root>
+    <testCase>
+        <currentPage>/content/pwc/de/en/website/www_pwclegal_de</currentPage>
+        <vanity>/content/pwc/de/en/website/www_pwclegal_de</vanity>
+        <expectedResult>http://www.pwclegal.de/en</expectedResult>
+    </testCase>
+    <testCase>
+        <currentPage>/content/pwc/de/de/website/www_pwclegal_de</currentPage>
+        <vanity>/content/pwc/de/de/website/www_pwclegal_de/</vanity>
+        <expectedResult>http://www.pwclegal.de/de</expectedResult>
+    </testCase>
+
+</root>

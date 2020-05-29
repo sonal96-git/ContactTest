@@ -1,0 +1,29 @@
+<root>
+    <testCase>
+        <currentPage>/content/pwc/za/en.html</currentPage>
+        <link>/content/pwc/za/en/service.html</link>
+        <expectedResult>/en/service.html</expectedResult>
+    </testCase>
+
+    <testCase>
+        <currentPage>/content/pwc/za/en/service.html</currentPage>
+        <link>/content/pwc/za/en.html</link>
+        <expectedResult>/en.html</expectedResult>
+    </testCase>
+    <testCase>
+        <currentPage>/content/pwc/za/en/service.html</currentPage>
+        <link>/content/pwc/za/en</link>
+        <expectedResult>/en</expectedResult>
+    </testCase>
+
+    <testCase>
+        <currentPage>/content/pwc/za/en/service.html</currentPage>
+        <link>/content/pwc/ca/en.html</link>
+        <expectedResult>http://www.pwc.com/ca/en.html</expectedResult>
+    </testCase>
+    <testCase>
+        <currentPage>/content/pwc/za/en/service.html</currentPage>
+        <link>/content/pwc/uk/en.html</link>
+        <expectedResult>http://www.pwc.co.uk</expectedResult>
+    </testCase>
+</root>

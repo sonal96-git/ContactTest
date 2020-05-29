@@ -1,0 +1,22 @@
+<root>
+    <testCase>
+        <currentPage>/content/pwc/uk/en/website/www_pwclegal_co_uk</currentPage>
+        <vanity>/content/pwc/uk/en/website/www_pwclegal_co_uk</vanity>
+        <expectedResult>http://www.pwclegal.co.uk</expectedResult>
+    </testCase>
+    <testCase>
+        <currentPage>/content/pwc/uk/en/website/www_pwclegal_co_uk</currentPage>
+        <vanity>/content/pwc/uk/en/website/www_pwclegal_co_uk/</vanity>
+        <expectedResult>http://www.pwclegal.co.uk</expectedResult>
+    </testCase>
+    <testCase>
+        <currentPage>/content/pwc/uk/en/website/www_pwclegal_co_uk</currentPage>
+        <vanity>/service</vanity>
+        <expectedResult>http://www.pwclegal.co.uk/service</expectedResult>
+    </testCase>
+    <testCase>
+        <currentPage>/content/pwc/uk/en/website/www_pwclegal_co_uk</currentPage>
+        <vanity>/content/pwc/uk/en/website/www_pwclegal_co_uk/service</vanity>
+        <expectedResult>http://www.pwclegal.co.uk/service</expectedResult>
+    </testCase>
+</root>

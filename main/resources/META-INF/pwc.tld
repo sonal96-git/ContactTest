@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<taglib xmlns="http://java.sun.com/xml/ns/javaee" version="2.1">
+    <tlib-version>1.0.0-SNAPSHOT</tlib-version>
+    <short-name>pwc</short-name>
+    <uri>http://www.pwc.com/taglibs</uri>
+    <tag>
+        <name>init</name>
+        <tag-class>com.pwc.wcm.taglibs.BaseTagLib</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+    <tag>
+        <name>defineNodeProperties</name>
+        <tag-class>com.pwc.wcm.taglibs.DefineNodePropertiesTagLib</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+    <tag>
+        <name>gallery</name>
+        <tag-class>com.pwc.wcm.taglibs.GalleryTaglib</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+    <tag>
+        <name>linkListLeftNav</name>
+        <tag-class>com.pwc.wcm.taglibs.LinkListLeftNavTaglib</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+    <tag>
+        <name>listTagLib</name>
+        <tag-class>com.pwc.wcm.taglibs.ListTagLib</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+    <tag>
+        <name>searchArticles</name>
+        <tag-class>com.pwc.wcm.taglibs.SearchArticlesTagLib</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+    <tag>
+        <name>textImage</name>
+        <tag-class>com.pwc.wcm.taglibs.TextImageTagLib</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+    <tag>
+        <name>tabs</name>
+        <tag-class>com.pwc.wcm.taglibs.TabsTagLib</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+    <tag>
+        <name>video</name>
+        <tag-class>com.pwc.wcm.taglibs.VideoTaglib</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+    <tag>
+        <name>headerFooter</name>
+        <tag-class>com.pwc.wcm.taglibs.HeaderFooterTagLib</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>type</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <function>
+        <name>getSubNavElementCssClass</name>
+        <function-class>com.pwc.wcm.taglibs.UtilityTagFunctions</function-class>
+        <function-signature>String getSubNavElementCssClass(java.lang.Integer)</function-signature>
+    </function>
+    <function>
+        <name>splitStrings</name>
+        <function-class>com.pwc.wcm.taglibs.UtilityTagFunctions</function-class>
+        <function-signature>String[] splitStrings(java.lang.String, java.lang.String)</function-signature>
+    </function>
+    
+     <function>
+        <name>sortStringArray</name>
+        <function-class>com.pwc.wcm.taglibs.UtilityTagFunctions</function-class>
+        <function-signature>String[] sortStringArray(java.lang.String[])</function-signature>
+    </function>
+    <function>
+        <name>getLinkForPath</name>
+        <function-class>com.pwc.wcm.taglibs.UtilityTagFunctions</function-class>
+        <function-signature>String getLinkForPath(org.apache.sling.api.SlingHttpServletRequest, java.lang.String)</function-signature>
+    </function>
+    
+     <function>
+        <name>getCountryFullName</name>
+        <function-class>com.pwc.wcm.taglibs.UtilityTagFunctions</function-class>
+        <function-signature>String getCountryFullName(org.apache.sling.api.SlingHttpServletRequest, java.lang.String)</function-signature>
+    </function>
+    
+    
+    <function>
+        <name>getGeolocationByIp</name>
+        <function-class>com.pwc.wcm.taglibs.UtilityTagFunctions</function-class>
+        <function-signature>java.lang.String getGeolocationByIp(java.lang.String)</function-signature>
+    </function>
+     <function>
+        <name>getGeolocation</name>
+        <function-class>com.pwc.wcm.taglibs.UtilityTagFunctions</function-class>
+        <function-signature>java.lang.String getGeolocation(org.apache.sling.api.SlingHttpServletRequest)</function-signature>
+    </function>
+        <function>
+        <name>getTerritoryFromPath</name>
+        <function-class>com.pwc.wcm.taglibs.UtilityTagFunctions</function-class>
+        <function-signature>java.lang.String getTerritoryFromPath(java.lang.String)</function-signature>
+    </function>
+    <function>
+        <name>getComponentContextStringAttribute</name>
+        <function-class>com.pwc.wcm.taglibs.BaseTagLib</function-class>
+        <function-signature>
+            java.lang.String getComponentContextStringAttribute(java.lang.String, com.day.cq.wcm.api.components.ComponentContext)
+        </function-signature>
+    </function>
+    <function>
+        <name>getComponentContextImageAttribute</name>
+        <function-class>com.pwc.wcm.taglibs.BaseTagLib</function-class>
+        <function-signature>
+            com.day.cq.wcm.foundation.Image getComponentContextImageAttribute(java.lang.String, com.day.cq.wcm.api.components.ComponentContext)
+        </function-signature>
+    </function>
+    <function>
+        <name>getComponentContextObjectAttribute</name>
+        <function-class>com.pwc.wcm.taglibs.BaseTagLib</function-class>
+        <function-signature>
+            java.lang.Object getComponentContextObjectAttribute(java.lang.String, com.day.cq.wcm.api.components.ComponentContext)
+        </function-signature>
+    </function>
+     <function>
+        <name>displayByDefinedQuery</name>
+        <function-class>com.pwc.wcm.taglibs.RightRailContactTagLib</function-class>
+        <function-signature>
+            java.lang.String displayByDefinedQuery(java.lang.String,org.apache.sling.api.SlingHttpServletRequest)
+        </function-signature>
+    </function>
+    <function>
+        <name>getContactLinks</name>
+        <function-class>com.pwc.wcm.taglibs.RightRailContactValidLinkTagLib</function-class>
+        <function-signature>
+            java.lang.String[] getContactLinks(java.lang.String[],org.apache.sling.api.SlingHttpServletRequest, java.lang.String)
+        </function-signature>
+    </function>
+    <function>
+        <name>getValidLinks</name>
+        <function-class>com.pwc.wcm.taglibs.RightRailContactValidLinkTagLib</function-class>
+        <function-signature>
+            java.lang.String[] getValidLinks(java.lang.String[],org.apache.sling.api.SlingHttpServletRequest)
+        </function-signature>
+    </function>
+    <tag>
+      <name>defineObjects</name>
+      <tag-class>com.pwc.wcm.taglibs.ArticleDefineObjects</tag-class>
+      <body-content>scriptless</body-content>
+    </tag>
+    <tag>
+        <name>relatedListPages</name>
+        <tag-class>com.pwc.wcm.taglibs.RelatedListTagLib</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+    <tag>
+        <name>listPages</name>
+        <tag-class>com.pwc.wcm.taglibs.ListPagesTagLib</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+    <tag>
+        <name>listAssets</name>
+        <tag-class>com.pwc.wcm.taglibs.ListAssetsTagLib</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+    <tag>
+        <name>listPageItem</name>
+        <tag-class>com.pwc.wcm.taglibs.ListPageItemTagLib</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+    <tag>
+        <name>listAssetItem</name>
+        <tag-class>com.pwc.wcm.taglibs.ListAssetItemTagLib</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+	<tag>
+        <name>feedData</name>
+        <tag-class>com.pwc.tagmodels.FetchFeedData</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>options</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String[]</type>
+        </attribute>
+        <attribute>
+            <name>path</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+
+        </attribute>
+        <attribute>
+            <name>limit</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+        </attribute>
+    </tag>
+</taglib>
